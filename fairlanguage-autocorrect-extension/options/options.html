@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>Options - After the Deadline</title>
+		<style type="text/css">
+			@import url(style.css);
+		</style>
+        <!--
+		<script src="../scripts/jquery-1.4.2.js"></script>
+-->
+		<script src="../scripts/jquery-1.8.3.js"></script>
+		<script src="options.js"></script>
+	</head>
+	<div id="wrap">
+
+		<div id="header">
+			<a href="http://www.afterthedeadline.com"><img src="logo.png"></a>
+			<div style="padding-top: 4px; color: rgb(136, 136, 136)">An intelligent proofreader for Google Chrome</div>
+		</div>
+
+		<div id="content">
+			<h4>Extension Options</h4>
+
+			<p>Activate proofreading with the following key stroke:</p>
+
+			<ul class="options" id="activation">
+				<li><input type="text" id="key" value="Ctrl-S"></li>
+				<li class="newonly"><input type="checkbox" id="auto"> Check form contents before submission</li>
+				<li><input type="checkbox" id="button"> Show AtD status button in address bar</li>
+				<li><input type="checkbox" id="message"> Display a message when no writing errors are found</li>
+			</ul>
+
+			<h4>English Proofreading Options</h4>
+
+			<p>Enable proofreading for the following grammar and style rules:</p>
+
+			<ul class="options" id="proofreader">
+				<li><input type="checkbox" name="Bias Language"> Biased Language</li>
+				<li><input type="checkbox" name="Cliches"> Clich&eacute;s</li>
+				<li><input type="checkbox" name="Complex Expression"> Complex Phrases</li>
+				<li><input type="checkbox" name="Diacritical Marks"> Diacritical Marks</li>
+				<li><input type="checkbox" name="Double Negatives"> Double Negatives</li>
+				<li><input type="checkbox" name="Hidden Verbs"> Hidden Verbs</li>
+				<li><input type="checkbox" name="Jargon Language"> Jargon</li>
+				<li><input type="checkbox" name="Passive voice"> Passive Voice</li>
+				<li><input type="checkbox" name="Phrases to Avoid"> Phrases to Avoid</li>
+				<li><input type="checkbox" name="Redundant Expression"> Redundant Phrases</li>
+			</ul>
+
+			<h4>Language</h4>
+
+			<p>After the Deadline supports English, French, German, Portuguese, and Spanish.</p>
+
+			<ul class="options" id="language">
+				<li>
+					<select name="language">
+						<option>English</option>
+						<option>French</option>
+						<option>German</option>
+						<option>Portuguese</option>
+						<option>Spanish</option>
+					</select>
+				</li>
+				<li><input type="checkbox" name="blah"> Detect language when proofreading</li>
+			</ul>
+
+			<h4>Ignored Phrases</h4>
+
+			<p>Identify words and phrases to ignore while proofreading:</p>
+
+			<p><input type="text" size="30" id="phrase"> <input type="button" value="Add" id="aphrase"></p>
+
+			<ul class="options" id="phrases">
+			</ul>
+
+			<h4>Ignored Sites</h4>
+
+			<p>After the Deadline will ignore the following sites:</p>
+
+			<p><input type="text" size="30" id="site"> <input type="button" value="Add" id="asite"></p>
+
+			<ul class="options" id="sites">
+			</ul>
+
+			<div style="text-align: center" style="margin-top: 5em">
+        	        	<p style="text-transform: uppercase; font-size: 0.75em; color: rgb(136, 136, 136);">an <a href="http://www.automattic.com"><img src="automattic-small.png"></a> extension</p>
+			</div>
+		</div>
+
+	</div>
+	</body>
+</html>
