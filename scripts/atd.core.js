@@ -11,7 +11,7 @@ var EXPORTED_SYMBOLS = ['AtDCore'];
 
 function AtDCore() {
 	/* these are the categories of errors AtD should ignore */
-	this.ignore_types = ['Bias Language', 'Cliches', 'Complex Expression', 'Diacritical Marks', 'Double Negatives', 'Hidden Verbs', 'Jargon Language', 'Passive voice', 'Phrases to Avoid', 'Redundant Expression'];
+	this.ignore_types = ['Cliches', 'Complex Expression', 'Diacritical Marks', 'Double Negatives', 'Hidden Verbs', 'Jargon Language', 'Passive voice', 'Phrases to Avoid', 'Redundant Expression'];
 
 	/* these are the phrases AtD should ignore */
 	this.ignore_strings = {};
