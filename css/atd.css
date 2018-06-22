@@ -49,7 +49,9 @@ from {
 
 .hiddenSuggestion
 {
-   border-bottom: 2px solid blue !important;
+  /* changed color of bias suggestions to purple, should be #7E0EB2  
+  */
+   border-bottom: 2px solid purple !important;
    cursor: pointer;
 }
 

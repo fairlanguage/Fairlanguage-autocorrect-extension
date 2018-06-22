@@ -51,9 +51,9 @@ function __disable() {
 		chrome.extension.sendRequest({ command: 'refreshTabs' });
 	});
 }
-
+// changed adress to Fairlanguage.com
 function home() {
-	goTo('http://chrome.afterthedeadline.com/proofreading-for-google-chrome-help/');
+	goTo('https://fairlanguage.com');
 }
 
 function options() {
