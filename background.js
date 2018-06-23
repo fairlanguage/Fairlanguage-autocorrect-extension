@@ -98,13 +98,13 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 /* chrome message passing listener */
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
 	if (request.command == 'options') {
-		callback({ auto: localStorage['auto'], 
-			   options: localStorage['options'], 
+		callback({ auto: localStorage['auto'],
+			   options: localStorage['options'],
 			   sites: localStorage['sites'],
 			   phrases: localStorage['phrases'],
 			   shortcut: localStorage['shortcut'] });
 		return;
-	} 
+	}
 	else if (request.command == 'alert') {
 		if (localStorage['message'] == 'true') {
 			alert(request.text);
@@ -112,8 +112,8 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 		return;
 	}
 	else if (request.command == 'refreshTabs') {
-		refreshTabs();	
-		return;		
+		refreshTabs();
+		return;
 	}
 	else if (request.command == 'ignore') {
 		var strings = localStorage['phrases'].split(/,\s*/);
@@ -147,7 +147,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 		request.url = 'https://en.service.afterthedeadline.com' + request.url;
 
 	xhr.open('POST', request.url, true );
-                
+
 	xhr.onreadystatechange = function() {
 		if ( xhr.readyState == 4 ) {
 			callback( xhr.responseText );
@@ -159,7 +159,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 
 	if (request.data.length)
 		request.data = encodeURI(request.data).replace(/&/g, '%26');
-                        
+
 	if (request.data.length)
 		request.data +=  '&key=' + localStorage['user-key'];
 	else

@@ -11,7 +11,7 @@ var EXPORTED_SYMBOLS = ['AtDCore'];
 
 function AtDCore() {
 	/* these are the categories of errors AtD should ignore */
-	this.ignore_types = ['Bias Language', 'Cliches', 'Complex Expression', 'Diacritical Marks', 'Double Negatives', 'Hidden Verbs', 'Jargon Language', 'Passive voice', 'Phrases to Avoid', 'Redundant Expression'];
+	this.ignore_types = ['Cliches', 'Complex Expression', 'Diacritical Marks', 'Double Negatives', 'Hidden Verbs', 'Jargon Language', 'Passive voice', 'Phrases to Avoid', 'Redundant Expression'];
 
 	/* these are the phrases AtD should ignore */
 	this.ignore_strings = {};
@@ -54,18 +54,18 @@ AtDCore.prototype.showTypes = function(string) {
 	/* set some default types that we want to make optional */
 
 		/* grammar checker options */
-	types["Double Negatives"]     = 1;
-	types["Hidden Verbs"]         = 1;
-	types["Passive voice"]        = 1;
-	types["Bias Language"]        = 1;
+	types["Double Negatives"]     = 0;
+	types["Hidden Verbs"]         = 0;
+	types["Passive voice"]        = 0;
+	types["Bias Language"]        = 0;
 
 		/* style checker options */
-	types["Cliches"]              = 1;
-	types["Complex Expression"]   = 1;
-	types["Diacritical Marks"]    = 1;
-	types["Jargon Language"]      = 1;
-	types["Phrases to Avoid"]     = 1;
-	types["Redundant Expression"] = 1;
+	types["Cliches"]              = 0;
+	types["Complex Expression"]   = 0;
+	types["Diacritical Marks"]    = 0;
+	types["Jargon Language"]      = 0;
+	types["Phrases to Avoid"]     = 0;
+	types["Redundant Expression"] = 0;
 
         var ignore_types = [];
 
@@ -138,8 +138,8 @@ AtDCore.prototype.buildErrorStructure = function(spellingList, enrichmentList, g
 	var seps   = this._getSeparators();
 	var errors = {};
 
-	this.addToErrorStructure(errors, spellingList, "hiddenSpellError", seps);
-	this.addToErrorStructure(errors, grammarList, "hiddenGrammarError", seps);
+	// this.addToErrorStructure(errors, spellingList, "hiddenSpellError", seps);
+	// this.addToErrorStructure(errors, grammarList, "hiddenGrammarError", seps);
 	this.addToErrorStructure(errors, enrichmentList, "hiddenSuggestion", seps);
 	return errors;
 };
