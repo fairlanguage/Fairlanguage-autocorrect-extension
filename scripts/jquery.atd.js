@@ -291,50 +291,50 @@ AtD_Basic.prototype.suggest = function(element) {
 	}
 
 	/* do the ignore option */
+	//
+	// var node = jQuery('<div class="spell_sep_top">' + this.getLang('menu_option_ignore_once', 'Ignore suggestion') + '</div>');
+	// node.click(function(e) {
+	// 	parent.ignoreSuggestion();
+	// 	suggest.remove();
+	// 	e.preventDefault();
+	// 	e.stopPropagation();
+	// });
+	// suggest.append(node);
+	//
+	// /* add the edit in place and ignore always option */
+	//
+	// if (this.callback_f != undefined && this.callback_f.editSelection != undefined) {
+	//
+	// 	if (this.callback_f != undefined && this.callback_f.ignore != undefined)
+	// 		node = jQuery('<div>' + this.getLang('menu_option_ignore_always', 'Ignore always') + '</div>');
+	// 	else
+	// 		node = jQuery('<div>' + this.getLang('menu_option_ignore_all', 'Ignore all') + '</div>');
+	//
+	// 	suggest.append(node);
+	//
+	// 	var node2 = jQuery('<div class="spell_sep_bottom spell_sep_top">' + this.getLang('menu_option_edit_selection', 'Edit Selection...') + '</div>');
+	// 	node2.click(function(e) {
+	// 		parent.editSelection(parent.container);
+	// 		suggest.remove();
+	// 		e.preventDefault();
+	// 		e.stopPropagation();
+	// 	});
+	// 	suggest.append(node2);
+	// }
+	// else {
+	// 	if (this.callback_f != undefined && this.callback_f.ignore != undefined)
+	// 		node = jQuery('<div class="spell_sep_bottom">' + this.getLang('menu_option_ignore_always', 'Ignore always') + '</div>');
+	// 	else
+	// 		node = jQuery('<div class="spell_sep_bottom">' + this.getLang('menu_option_ignore_all', 'Ignore all') + '</div>');
+	// 	suggest.append(node);
+	// }
 
-	var node = jQuery('<div class="spell_sep_top">' + this.getLang('menu_option_ignore_once', 'Ignore suggestion') + '</div>');
-	node.click(function(e) {
-		parent.ignoreSuggestion();
-		suggest.remove();
-		e.preventDefault();
-		e.stopPropagation();
-	});
-	suggest.append(node);
-
-	/* add the edit in place and ignore always option */
-
-	if (this.callback_f != undefined && this.callback_f.editSelection != undefined) {
-
-		if (this.callback_f != undefined && this.callback_f.ignore != undefined)
-			node = jQuery('<div>' + this.getLang('menu_option_ignore_always', 'Ignore always') + '</div>');
-		else
-			node = jQuery('<div>' + this.getLang('menu_option_ignore_all', 'Ignore all') + '</div>');
-
-		suggest.append(node);
-
-		var node2 = jQuery('<div class="spell_sep_bottom spell_sep_top">' + this.getLang('menu_option_edit_selection', 'Edit Selection...') + '</div>');
-		node2.click(function(e) {
-			parent.editSelection(parent.container);
-			suggest.remove();
-			e.preventDefault();
-			e.stopPropagation();
-		});
-		suggest.append(node2);
-	}
-	else {
-		if (this.callback_f != undefined && this.callback_f.ignore != undefined)
-			node = jQuery('<div class="spell_sep_bottom">' + this.getLang('menu_option_ignore_always', 'Ignore always') + '</div>');
-		else
-			node = jQuery('<div class="spell_sep_bottom">' + this.getLang('menu_option_ignore_all', 'Ignore all') + '</div>');
-		suggest.append(node);
-	}
-
-	node.click(function(e) {
-		parent.ignoreAll(parent.container);
-		suggest.remove();
-		e.preventDefault();
-		e.stopPropagation();
-	});
+	// node.click(function(e) {
+	// 	parent.ignoreAll(parent.container);
+	// 	suggest.remove();
+	// 	e.preventDefault();
+	// 	e.stopPropagation();
+	// });
 
 	/* show the menu */
 
