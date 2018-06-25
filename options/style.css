@@ -5,18 +5,21 @@
 a {
 	color: #1390ec;
 }
- 
+
 a:visited {
 	color: #006;
 }
- 
+
 a:hover {
 	color: #000;
 }
- 
+
 body {
 	background: #fff;
-	font: 14px "Lucida Grande", Arial, Helvetica, sans-serif;
+	font-family: "Montserrat";
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: -0.6px;
 	margin: 2em auto;
 	text-align: center;
 	line-height: 18px;
@@ -31,12 +34,12 @@ body {
 	text-align: center;
 }
 p {
-	margin: 0 0 10px 0;
+	margin: 0 0 10px 40px;
 }
 
 
 #wrap {
-	width: 600px;
+	width: 750px;
 	margin: 0 auto;
 	text-align: left;
 }
@@ -45,8 +48,17 @@ p {
 #header {
 	float: left;
 	overflow: hidden;
-	margin: 0 0 20px 0;
+	margin: 10px 0 20px 0;
 }
+
+#header p {
+	font-size: 20px;
+	font-weight: bold;
+	color: #7E0EB2;
+	/* text-align: padding-left;
+	padding-left: 60px; */
+}
+
 #header h1 {
 	display:block;
 	height:47px;
@@ -148,7 +160,7 @@ p {
         padding: 0;
 }
 .splash ul li {
-	padding-left: 26px;	
+	padding-left: 26px;
 	background: url(../images/check.gif) no-repeat 0 3px;
 	line-height: 24px;
 	margin-bottom: 8px;
@@ -164,11 +176,12 @@ p {
 }
 
 /** Content **/
+
 #content {
 	width: 100%;
 	float: left;
 	overflow: hidden;
-	margin: 0 0 20px 0;
+	margin: 10px 60px;
 }
 
 .c0 {
@@ -202,20 +215,23 @@ h2 {
         font-weight: normal;
 }
 h3 {
-	color: #0082dd;
-	font-weight: normal;
-	font-size: 20px;
+	color: #2eb8b8;
+	/* color: #248cc8; */
+	font-weight: bold;
+	font-size: 24px;
 	line-height: 26px;
-	border-bottom: 5px solid #f4f4f4;
-	margin-bottom: 10px;
+	border-bottom: 3px solid #e6e6e6;
+		margin-bottom: 15px;
+	text-align: left;
 }
 h4 {
-	color: #0082dd;
-	font-weight: normal;
-	font-size: 18px;
+	/* color: #7E0EB2; */
+	color: #000000;
+	font-weight: 600;
+	font-size: 20px;
 	line-height: 22px;
 	margin-bottom: 10px;
-        margin-top: 10px;
+        margin-top: 20px;
 }
 
 
@@ -317,9 +333,20 @@ h4 {
 	background: #efefef;
 }
 
-img
-{
-   border: none;
+img {
+	height: 300px;
+ 	width: 300px;
+	border: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#img2 {
+	height: 300px;
+	width: 300px;
+	display: block;
+	margin-right: 90px;
 }
 
 ol, ul
@@ -394,15 +421,21 @@ div.error p, div.error h3, div.good p, div.good h3
 
 #content ul li {
    padding-bottom: 2px;
+	 padding-left: 15px;
 }
 
 input {
-   font: 14px "Lucida Grande", Arial, Helvetica, sans-serif;
+	 font-family: "Montserrat";
+	 font-size: 14px;
+	 width: auto;
+	 padding: 6px 20px;
+	 margin: 6px 0;
+	 box-sizing: border-box;
 }
 
 /* what's a little CSS amongst friends */
 #key {
-  border-radius: 10px;
+	border-radius: normal;
   border: 1px solid #ccc;
   height: 24px;
   text-align: center;
@@ -412,9 +445,8 @@ input {
   margin-bottom: 4px;
 }
 #key:focus {
-  border-radius: 11px;
+	border-radius: normal;
   background-color: #ccc;
   border: 1px solid #333;
   outline: none;
 }
-
