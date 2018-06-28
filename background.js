@@ -51,7 +51,7 @@ function checkTab(tabId, url, change) {
 			chrome.pageAction.setPopup({ popup: 'action/disable.html', tabId: tabId });
 	}
 	else {
-		chrome.pageAction.setIcon({ path: 'images/icon48bw.png', tabId: tabId });
+		chrome.pageAction.setIcon({ path: 'images/fairlanguage_logo_16_black_whitebg.png', tabId: tabId });
 
 		/* check if we're using an older ver of Chrome, if so don't even mess with page actions */
 		if (chrome.pageAction['setPopup'] != undefined)
