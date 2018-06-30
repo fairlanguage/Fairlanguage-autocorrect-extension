@@ -135,16 +135,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 
 	/* handle language option */
 	var language = localStorage['language'];
-	if (language == 'French')
-		request.url = 'https://fr.127.0.0.1:1049' + request.url;
-	else if (language == 'German')
-		request.url = 'https://de.127.0.0.1:1049' + request.url;
-	else if (language == 'Portuguese')
-		request.url = 'https://pt.127.0.0.1:1049' + request.url;
-	else if (language == 'Spanish')
-		request.url = 'https://es.127.0.0.1:1049' + request.url;
-	else
-		request.url = 'https://en.127.0.0.1:1049' + request.url;
+	request.url = 'http://127.0.0.1:1049' + request.url;
 
 	xhr.open('POST', request.url, true );
 

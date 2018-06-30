@@ -23,12 +23,12 @@
 
   "permissions": [
      "tabs",
-     "https://127.0.0.1:1049/*",
-     "https://de.127.0.0.1:1049/*",
-     "https://en.127.0.0.1:1049/*",
-     "https://es.127.0.0.1:1049/*",
-     "https://fr.127.0.0.1:1049/*",
-     "https://pt.127.0.0.1:1049/*"
+     "http://127.0.0.1:1049/*",
+     "http://de.127.0.0.1:1049/*",
+     "https://en.service.afterthedeadline.com/*",
+     "https://es.service.afterthedeadline.com/*",
+     "https://fr.service.afterthedeadline.com/*",
+     "https://pt.service.afterthedeadline.com/*"
    ],
 
 
@@ -43,7 +43,7 @@
              "scripts/jquery.atd.div.js",
              "scripts/jquery.atd.iframe.js",
              "scripts/widget.js",
-	           "scripts/autoproof.js",
+             "scripts/autoproof.js",
              "scripts/atd-chrome.js"],
 
      "all_frames": true,
