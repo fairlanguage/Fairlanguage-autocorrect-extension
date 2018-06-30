@@ -136,15 +136,15 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 	/* handle language option */
 	var language = localStorage['language'];
 	if (language == 'French')
-		request.url = 'https://fr.service.afterthedeadline.com' + request.url;
+		request.url = 'https://fr.127.0.0.1:1049' + request.url;
 	else if (language == 'German')
-		request.url = 'https://de.service.afterthedeadline.com' + request.url;
+		request.url = 'https://de.127.0.0.1:1049' + request.url;
 	else if (language == 'Portuguese')
-		request.url = 'https://pt.service.afterthedeadline.com' + request.url;
+		request.url = 'https://pt.127.0.0.1:1049' + request.url;
 	else if (language == 'Spanish')
-		request.url = 'https://es.service.afterthedeadline.com' + request.url;
+		request.url = 'https://es.127.0.0.1:1049' + request.url;
 	else
-		request.url = 'https://en.service.afterthedeadline.com' + request.url;
+		request.url = 'https://en.127.0.0.1:1049' + request.url;
 
 	xhr.open('POST', request.url, true );
 
