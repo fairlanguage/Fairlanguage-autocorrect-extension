@@ -11,7 +11,7 @@ var EXPORTED_SYMBOLS = ['AtDCore'];
 
 function AtDCore() {
 	/* these are the categories of errors AtD should ignore */
-	this.ignore_types = ['Cliches', 'Complex Expression', 'Diacritical Marks', 'Double Negatives', 'Hidden Verbs', 'Jargon Language', 'Passive voice', 'Phrases to Avoid', 'Redundant Expression'];
+	this.ignore_types = [ 'Cliches', 'Complex Expression', 'Diacritical Marks', 'Double Negatives', 'Hidden Verbs', 'Jargon Language', 'Passive voice', 'Phrases to Avoid', 'Redundant Expression'];
 
 	/* these are the phrases AtD should ignore */
 	this.ignore_strings = {};
@@ -54,18 +54,19 @@ AtDCore.prototype.showTypes = function(string) {
 	/* set some default types that we want to make optional */
 
 		/* grammar checker options */
-	types["Double Negatives"]     = 0;
-	types["Hidden Verbs"]         = 0;
-	types["Passive voice"]        = 0;
-	types["Bias Language"]        = 0;
+	types["Double Negatives"]     = 1;
+	types["Hidden Verbs"]         = 1;
+	types["Passive voice"]        = 1;
+	types["Bias Language"]        = 0; 
+
 
 		/* style checker options */
-	types["Cliches"]              = 0;
-	types["Complex Expression"]   = 0;
-	types["Diacritical Marks"]    = 0;
-	types["Jargon Language"]      = 0;
-	types["Phrases to Avoid"]     = 0;
-	types["Redundant Expression"] = 0;
+	types["Cliches"]              = 1;
+	types["Complex Expression"]   = 1;
+	types["Diacritical Marks"]    = 1;
+	types["Jargon Language"]      = 1;
+	types["Phrases to Avoid"]     = 1;
+	types["Redundant Expression"] = 1;
 
         var ignore_types = [];
 
@@ -134,13 +135,14 @@ AtDCore.prototype.addToErrorStructure = function(errors, list, type, seps) {
 	});
 };
 
-AtDCore.prototype.buildErrorStructure = function(spellingList, enrichmentList, grammarList) {
+AtDCore.prototype.buildErrorStructure = function(enrichmentList, spellingList, grammarList) {
 	var seps   = this._getSeparators();
 	var errors = {};
 
-	// this.addToErrorStructure(errors, spellingList, "hiddenSpellError", seps);
-	// this.addToErrorStructure(errors, grammarList, "hiddenGrammarError", seps);
 	this.addToErrorStructure(errors, enrichmentList, "hiddenSuggestion", seps);
+	this.addToErrorStructure(errors, spellingList, "hiddenSpellError", seps);
+	// this.addToErrorStructure(errors, grammarList, "hiddenGrammarError", seps);
+
 	return errors;
 };
 
@@ -171,9 +173,10 @@ AtDCore.prototype.processXML = function(responseXML) {
 	var errors = responseXML.getElementsByTagName('error');
 
 	/* words to mark */
+	var enrichment       = [];
 	var grammarErrors    = [];
 	var spellingErrors   = [];
-	var enrichment       = [];
+	
 
 	for (var i = 0; i < errors.length; i++) {
 		if (errors[i].getElementsByTagName('string').item(0).firstChild != null) {
@@ -247,7 +250,7 @@ AtDCore.prototype.processXML = function(responseXML) {
         var ecount = spellingErrors.length + grammarErrors.length + enrichment.length;
 
 	if (ecount > 0)
-		errorStruct = this.buildErrorStructure(spellingErrors, enrichment, grammarErrors);
+		errorStruct = this.buildErrorStructure(enrichment, spellingErrors, grammarErrors);
 	else
 		errorStruct = undefined;
 
@@ -521,6 +524,7 @@ AtDCore.prototype.applySuggestion = function(element, suggestion) {
 /*
  * Check for an error
  */
+
 AtDCore.prototype.hasErrorMessage = function(xmlr) {
 	return (xmlr != undefined && xmlr.getElementsByTagName('message').item(0) != null);
 };
