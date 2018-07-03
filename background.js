@@ -66,7 +66,7 @@ function checkTab(tabId, url, change) {
 	}
 
 	/* show AtD will have nothing to do with these pages */
-	if (aurl == 'http://acid3.acidtests.org' || aurl == 'https://chrome.google.com' || aurl == 'https://spreadsheets.google.com' || aurl == 'http://spreadsheets.google.com') {
+	if (aurl == 'http://acid3.acidtests.org' || aurl == 'https://chrome.google.com' || aurl == 'https://spreadsheets.google.com' || aurl == 'http://spreadsheets.google.com' || aurl == 'https://docs.google.com/spreadsheets')  {
 		chrome.pageAction.hide(tabId);
 		enabled = false;
 	}
