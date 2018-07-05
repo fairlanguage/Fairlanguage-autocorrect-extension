@@ -1,10 +1,22 @@
 body {
-	width: 200px;
+	width: 348px;
         background: #fff;
-       	font: 14px "Lucida Grande", Arial, Helvetica, sans-serif;
+				font-family: "Montserrat";
+				font-size: 16px;
+	margin: 2;
+	overflow: hidden;
+
 }
 a {
        	color: #1390ec;
+}
+
+.img {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:center;
 }
 
 a:visited {
