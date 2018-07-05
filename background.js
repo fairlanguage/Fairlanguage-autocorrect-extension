@@ -66,7 +66,7 @@ function checkTab(tabId, url, change) {
 	}
 
 	/* show AtD will have nothing to do with these pages */
-	if (aurl == 'http://acid3.acidtests.org' || aurl == 'https://chrome.google.com' || aurl == 'https://spreadsheets.google.com' || aurl == 'http://spreadsheets.google.com') {
+	if (aurl == 'http://acid3.acidtests.org' || aurl == 'https://chrome.google.com' || aurl == 'https://spreadsheets.google.com' || aurl == 'http://spreadsheets.google.com' || aurl == 'https://docs.google.com/spreadsheets')  {
 		chrome.pageAction.hide(tabId);
 		enabled = false;
 	}
@@ -135,16 +135,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 
 	/* handle language option */
 	var language = localStorage['language'];
-	if (language == 'French')
-		request.url = 'https://fr.service.afterthedeadline.com' + request.url;
-	else if (language == 'German')
-		request.url = 'https://de.service.afterthedeadline.com' + request.url;
-	else if (language == 'Portuguese')
-		request.url = 'https://pt.service.afterthedeadline.com' + request.url;
-	else if (language == 'Spanish')
-		request.url = 'https://es.service.afterthedeadline.com' + request.url;
-	else
-		request.url = 'https://en.service.afterthedeadline.com' + request.url;
+	request.url = 'http://127.0.0.1:1049' + request.url;
 
 	xhr.open('POST', request.url, true );
 
