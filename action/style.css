@@ -1,27 +1,45 @@
 body {
-	width: 348px;
-        background: #fff;
-				font-family: "Montserrat";
-				font-size: 16px;
+	width: 280px;
+	padding: 10px;
+  background: #fff;
+	font-family: "Montserrat";
+	font-size: 14px;
 	margin: 2;
 	overflow: hidden;
-
 }
-a {
-       	color: #1390ec;
+
+p {
+	font-weight: 500;
+	font-size: 16px;
+}
+
+hr {
+	border: 0;
+	width: 100%;
+	height: 1px;
+	color: #D0D0D0;
+	background-color: #D0D0D0;
 }
 
 .img {
+	width: 150px;
+	height: 150px;
 	clear: both;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	text-align:center;
+	border-bottom: 1px
+}
+
+a {
+	color: #1390ec;
 }
 
 a:visited {
-       	color: #006;
+  color: #006;
 }
+
 a:hover {
-       	color: #000;
+  color: #000;
 }
