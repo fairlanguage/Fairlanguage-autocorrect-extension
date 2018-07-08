@@ -4,7 +4,7 @@
 
 div.afterthedeadline-button
 {
-    /* general icon in text input */ 
+    /* general icon in text input */
   position: absolute !important;
   background: url(../images/fairlanguage_logo_16_black_whitebg.png) transparent no-repeat top left !important;
   width: 20px !important;
@@ -49,9 +49,7 @@ from {
 
 .hiddenSuggestion
 {
-  /* changed color of bias suggestions to purple, should be #7E0EB2  
-  */
-   border-bottom: 2px solid purple !important;
+   border-bottom: 2px solid #AB7CEB !important;
    cursor: pointer;
 }
 
