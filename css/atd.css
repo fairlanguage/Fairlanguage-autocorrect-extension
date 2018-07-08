@@ -64,21 +64,20 @@ div.suggestmenu
 {
    background: #fff;
    position: absolute;
-   display: none;
+   display: block;
    z-index: 9999;
    overflow: none;
    margin-top: 1px;
    text-align: left;
-   font-size: 12px;
-   font-family: Tahoma, Verdana, Arial, Helvetica;
+   font-size: 16px;
    cursor: default;
 }
 
 div.suggestmenu strong
 {
    background: #ddd;
-   font-weight: bold;
-   padding:3px 6px 3px 6px;
+   font-weight: 500;
+   padding:20px 20px 20px 20px;
    display:block;
    border:1px solid #ccc;
    color: black;
@@ -100,7 +99,8 @@ div.suggestmenu div
    background: #fff;
    border-left:1px solid #bbb;
    border-right:1px solid #bbb;
-   padding:3px 6px 3px 6px;
+   border-bottom: 1px solid #bbb;
+   padding:10px 10px 10px 10px;
    display:block;
    margin:0px;
    text-decoration:none;
