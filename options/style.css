@@ -55,9 +55,7 @@ p {
 	font-size: 20px;
 	font-weight: bold;
 	color: #AB7CEB;
-
-	/* text-align: padding-left;
-	padding-left: 60px; */
+	padding-top: 10px;
 }
 
 #header h1 {
@@ -216,14 +214,15 @@ h2 {
         font-weight: normal;
 }
 h3 {
-	color: #2eb8b8;
-	/* color: #248cc8; */
+	color: #333333;
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 30px;
 	line-height: 26px;
 	border-bottom: 3px solid #e6e6e6;
 	margin-bottom: 15px;
 	text-align: left;
+	padding-bottom: 13px;
+	padding-top: 30px;
 }
 h4 {
 	/* color: #7E0EB2; */
