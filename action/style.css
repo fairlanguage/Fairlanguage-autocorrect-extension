@@ -43,10 +43,25 @@ hr {
 	padding-left: 20px;
 }
 
+ul {
+  list-style-type: none;
+	padding-left: 2px;
+}
+
+ul li:before {
+  content: '';
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+ 	background-size: 30px;
+  background-image: url('flamingo-facing-left-3.png');
+  background-repeat: no-repeat;
+  margin-right: 5px;
+
+}
 a:link, a:visited {
 	text-decoration: none;
-	/* color: #D0D0D0; */
-		color: #707070;
+	color: #707070;
 }
 
 a:hover, a:active {
