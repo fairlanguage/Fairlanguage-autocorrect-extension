@@ -223,7 +223,7 @@ AtDCore.prototype.processXML = function(responseXML) {
 			*** Can be used to set the title area in the popup menu - Fairlanguage Fix *** 
 			*/
 			if (errorDescription == 'Bias Language')
-					suggestion["description"] = 'Say whatever';
+					suggestion["description"] = 'Unfaire Formulierung';
 
 
 				if (types[errorDescription] == undefined) {
