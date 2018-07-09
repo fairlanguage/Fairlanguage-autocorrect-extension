@@ -68,6 +68,7 @@ div.suggestmenu
    z-index: 9999;
    overflow: none;
    margin-top: 1px;
+   margin-left: 5px;
    text-align: left;
    font-family: "Montserrat", "Lucida Grande", "Arial";
    font-size: 16px;
@@ -80,11 +81,10 @@ div.suggestmenu strong
    font-weight: 600;
    font-size: 14px;
    text-shadow: 1px 1px #ccc;
-   text-transform: capitalize;
    text-align: center;
    padding:10px 10px 10px 10px;
    display:block;
-   box-shadow: 10px 10px 5px #ccc;
+   box-shadow: 5px 5px 30px #ccc;
    /* border-top: 1px solid #ccc;
    border-left: 1px solid #ccc;
    border-right: 1px solid #ccc;
@@ -109,8 +109,8 @@ div.suggestmenu div
    background: #fff;
    border-left:1px solid #bbb;
    border-right:1px solid #bbb;
-   box-shadow: 10px 10px 5px #ccc;
-   padding:15px 25px 15px 25px;
+   box-shadow: 5px 5px 30px #ccc;
+   padding:10px 25px 10px 25px;
    display:block;
    margin:0px;
    text-decoration:none;
