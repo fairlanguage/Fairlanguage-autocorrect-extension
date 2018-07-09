@@ -84,7 +84,7 @@ div.suggestmenu strong
    text-align: center;
    padding:10px 10px 10px 10px;
    display:block;
-   box-shadow: 5px 5px 30px #ccc;
+   box-shadow: 5px 5px 5px #ccc;
    /* border-top: 1px solid #ccc;
    border-left: 1px solid #ccc;
    border-right: 1px solid #ccc;
@@ -109,7 +109,7 @@ div.suggestmenu div
    background: #fff;
    border-left:1px solid #bbb;
    border-right:1px solid #bbb;
-   box-shadow: 5px 5px 30px #ccc;
+   box-shadow: 5px 5px 5px #ccc;
    padding:10px 25px 10px 25px;
    display:block;
    margin:0px;

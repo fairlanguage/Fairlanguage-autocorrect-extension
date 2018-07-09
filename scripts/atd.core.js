@@ -57,8 +57,7 @@ AtDCore.prototype.showTypes = function(string) {
 	types["Double Negatives"]     = 1;
 	types["Hidden Verbs"]         = 1;
 	types["Passive voice"]        = 1;
-	types["Bias Language"]        = 0; 
-
+	types["Bias Language"]        = 0;
 
 		/* style checker options */
 	types["Cliches"]              = 1;
@@ -176,7 +175,6 @@ AtDCore.prototype.processXML = function(responseXML) {
 	var enrichment       = [];
 	var grammarErrors    = [];
 	var spellingErrors   = [];
-	
 
 	for (var i = 0; i < errors.length; i++) {
 		if (errors[i].getElementsByTagName('string').item(0).firstChild != null) {
