@@ -218,6 +218,14 @@ AtDCore.prototype.processXML = function(responseXML) {
 					suggestion["moreinfo"] = errorUrl + '&theme=tinymce';
 				}
 
+
+			/*	
+			*** Can be used to set the title area in the popup menu - Fairlanguage Fix *** 
+			*/
+			if (errorDescription == 'Bias Language')
+					suggestion["description"] = 'Say whatever';
+
+
 				if (types[errorDescription] == undefined) {
 					if (errorType == "suggestion")
 						enrichment.push({ word: errorString, pre: errorContext });
