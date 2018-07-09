@@ -4,7 +4,7 @@
 
 div.afterthedeadline-button
 {
-    /* general icon in text input */ 
+    /* general icon in text input */
   position: absolute !important;
   background: url(../images/fairlanguage_logo_16_black_whitebg.png) transparent no-repeat top left !important;
   width: 20px !important;
@@ -49,9 +49,7 @@ from {
 
 .hiddenSuggestion
 {
-  /* changed color of bias suggestions to purple, should be #7E0EB2  
-  */
-   border-bottom: 2px solid purple !important;
+   border-bottom: 2px solid #AB7CEB !important;
    cursor: pointer;
 }
 
@@ -66,24 +64,33 @@ div.suggestmenu
 {
    background: #fff;
    position: absolute;
-   display: none;
+   display: block;
    z-index: 9999;
    overflow: none;
    margin-top: 1px;
+   margin-left: 5px;
    text-align: left;
-   font-size: 12px;
-   font-family: Tahoma, Verdana, Arial, Helvetica;
+   font-family: "Montserrat", "Lucida Grande", "Arial";
+   font-size: 16px;
    cursor: default;
 }
 
 div.suggestmenu strong
 {
-   background: #ddd;
-   font-weight: bold;
-   padding:3px 6px 3px 6px;
+   background: #F4F4F4;
+   font-weight: 600;
+   font-size: 14px;
+   text-shadow: 1px 1px #ccc;
+   text-align: center;
+   padding:10px 10px 10px 10px;
    display:block;
-   border:1px solid #ccc;
-   color: black;
+   box-shadow: 5px 5px 5px #ccc;
+   /* border-top: 1px solid #ccc;
+   border-left: 1px solid #ccc;
+   border-right: 1px solid #ccc;
+   border-bottom: 1px solid #ccc; */
+   border: 1px solid #ccc;
+   color: #333333;
    cursor: default;
 }
 
@@ -102,7 +109,8 @@ div.suggestmenu div
    background: #fff;
    border-left:1px solid #bbb;
    border-right:1px solid #bbb;
-   padding:3px 6px 3px 6px;
+   box-shadow: 5px 5px 5px #ccc;
+   padding:10px 25px 10px 25px;
    display:block;
    margin:0px;
    text-decoration:none;
@@ -123,13 +131,17 @@ div.suggestmenu div.first
 
 .spell_sep_top
 {
-   border-top: 1px solid #ccc;
+   /* border-top: 1px solid #ccc; */
+   border-bottom: 1px solid #ccc;
+   text-align: right;
+   font-size: 12px;
 }
 
 div.suggestmenu div:hover
 {
    color:#000;
-   background: #dbecf3
+   /* background: #D5C7EA; */
+   background: #F4F4F4;
 }
 
 div.suggestmenu .foot

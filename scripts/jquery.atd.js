@@ -279,7 +279,7 @@ AtD_Basic.prototype.suggest = function(element) {
 	/* do the explain menu if configured */
 
 	if (this.callback_f != undefined && this.callback_f.explain != undefined && errorDescription['moreinfo'] != undefined) {
-		var node = jQuery('<div class="spell_sep_top">' + this.getLang('menu_option_explain', 'Explain...') + '</div>');
+		var node = jQuery('<div class="spell_sep_top">' + this.getLang('menu_option_explain', 'Warum ist das unfair?') + '</div>');
 		node.click(function(e) {
 			parent.explainError();
 			suggest.remove();
