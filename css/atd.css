@@ -69,18 +69,28 @@ div.suggestmenu
    overflow: none;
    margin-top: 1px;
    text-align: left;
+   font-family: "Montserrat", "Lucida Grande", "Arial";
    font-size: 16px;
    cursor: default;
 }
 
 div.suggestmenu strong
 {
-   background: #ddd;
-   font-weight: 500;
-   padding:20px 20px 20px 20px;
+   background: #F4F4F4;
+   font-weight: 600;
+   font-size: 14px;
+   text-shadow: 1px 1px #ccc;
+   text-transform: capitalize;
+   text-align: center;
+   padding:25px 20px 25px 20px;
    display:block;
-   border:1px solid #ccc;
-   color: black;
+   box-shadow: 10px 10px 5px #ccc;
+   border-top: 1px solid #ccc;
+   border-left: 1px solid #ccc;
+   border-right: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
+   /* border: 1px solid black; */
+   color: #AB7CEB;
    cursor: default;
 }
 
@@ -99,8 +109,8 @@ div.suggestmenu div
    background: #fff;
    border-left:1px solid #bbb;
    border-right:1px solid #bbb;
-   border-bottom: 1px solid #bbb;
-   padding:10px 10px 10px 10px;
+   box-shadow: 10px 10px 5px #ccc;
+   padding:20px 25px 20px 25px;
    display:block;
    margin:0px;
    text-decoration:none;
@@ -121,13 +131,16 @@ div.suggestmenu div.first
 
 .spell_sep_top
 {
-   border-top: 1px solid #ccc;
+   /* border-top: 1px solid #ccc; */
+   border-bottom: 1px solid #ccc;
+   text-align: right;
+   font-size: 12px;
 }
 
 div.suggestmenu div:hover
 {
    color:#000;
-   background: #dbecf3
+   background: #D5C7EA;
 }
 
 div.suggestmenu .foot
