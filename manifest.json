@@ -1,6 +1,6 @@
 {
   "name": "Fairlanguage",
-  "version": "0.2",
+  "version": "0.3",
   "manifest_version":2,
   "description": "Check spelling, style, and grammar in your browser",
 
@@ -25,7 +25,7 @@
      "tabs",
      "http://127.0.0.1:1049/*",
      "http://de.127.0.0.1:1049/*",
-     "https://en.service.afterthedeadline.com/*",
+     "https://en.127.0.0.1:1049/*",
      "https://es.service.afterthedeadline.com/*",
      "https://fr.service.afterthedeadline.com/*",
      "https://pt.service.afterthedeadline.com/*"
