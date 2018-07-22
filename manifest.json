@@ -2,7 +2,7 @@
   "name": "Fairlanguage",
   "version": "0.3",
   "manifest_version":2,
-  "description": "Check spelling, style, and grammar in your browser",
+  "description": "Fairlanguage ist dein Autokorrektur Tool, das dir hilft, eine faire, gendergerechte Sprache zu verwenden.",
 
   "icons" : { "48" : "images/fairlanguage_logo_48_transparent.png",
               "128" : "images/fairlanguage_logo_128_transparent.png" },
@@ -25,10 +25,7 @@
      "tabs",
      "http://127.0.0.1:1049/*",
      "http://de.127.0.0.1:1049/*",
-     "https://en.127.0.0.1:1049/*",
-     "https://es.service.afterthedeadline.com/*",
-     "https://fr.service.afterthedeadline.com/*",
-     "https://pt.service.afterthedeadline.com/*"
+     "https://en.127.0.0.1:1049/*"
    ],
 
 
