@@ -290,6 +290,15 @@ AtD_Basic.prototype.suggest = function(element) {
 		this.explainURL = errorDescription['moreinfo'];
 	}
 
+	{
+		var node = jQuery('<div class="spell_sep_top">' + this.getLang('add_unfair_word', 'Unfaires Wort hinzufügen') + '</div>');
+		node.click(function(e) {
+			window.location.href = "mailto:iwant@fairlanguage.com?subject=Mir%20fehlt%20noch%20ein%20unfaires%20Wort&body=Sorry.%20So%20weit%20sind%20wir%20mit%20der%20Entwicklung%20noch%20nicht.%20Aber%20du%20kannst%20uns%20gerne%20eine%20Mail%20schreiben.%20Deine%20unfairen%20Formulierungen%20sind%20dann%20in%20der%20Zukunft%20dabei.";
+		});
+		suggest.append(node);
+	}
+
+
 	/* do the ignore option */
 	//
 	// var node = jQuery('<div class="spell_sep_top">' + this.getLang('menu_option_ignore_once', 'Ignore suggestion') + '</div>');
