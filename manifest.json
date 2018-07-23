@@ -23,9 +23,9 @@
 
   "permissions": [
      "tabs",
-     "http://127.0.0.1:1049/*",
-     "http://de.127.0.0.1:1049/*",
-     "https://en.127.0.0.1:1049/*"
+     "https://fairlanguage.dev-star.de/*",
+     "https://de.fairlanguage.dev-star.de/*",
+     "https://en.fairlanguage.dev-star.de/*"
    ],
 
 

@@ -135,7 +135,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 
 	/* handle language option */
 	var language = localStorage['language'];
-	request.url = 'http://127.0.0.1:1049' + request.url;
+	request.url = 'https://fairlanguage.dev-star.de' + request.url;
 
 	xhr.open('POST', request.url, true );
 
