@@ -4,11 +4,14 @@
   "manifest_version":2,
   "description": "Fairlanguage ist dein Autokorrektur Tool, das dir hilft, eine faire, gendergerechte Sprache zu verwenden.",
 
-  "icons" : { "48" : "images/fairlanguage_logo_48_transparent.png",
+  "icons" : { "16": "images/fairlanguage_logo_16_white_color.png",
+              "48" : "images/fairlanguage_logo_48_transparent.png",
               "128" : "images/fairlanguage_logo_128_transparent.png" },
 
+
+
   "page_action": {
-    "default_icon"  : "images/fairlanguage_logo_48_transparent.png",
+    "default_icon"  : "images/fairlanguage_logo_16_white_color.png",
     "default_title" : "Fairlanguage - Faire Sprache auf Knopfdruck",
     "popup" : "action/disable.html"
   },

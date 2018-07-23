@@ -44,7 +44,7 @@ function checkTab(tabId, url, change) {
 		chrome.tabs.sendRequest(tabId, enabled ? 'enabled' : 'disabled');
 
 	if (enabled) {
-		chrome.pageAction.setIcon({ path: 'images/fairlanguage_logo_48_transparent.png', tabId: tabId });
+		chrome.pageAction.setIcon({ path: 'images/fairlanguage_logo_16_white_color.png', tabId: tabId });
 
 		/* check if we're using an older ver of Chrome, if so don't even mess with page actions */
 		if (chrome.pageAction['setPopup'] != undefined)
