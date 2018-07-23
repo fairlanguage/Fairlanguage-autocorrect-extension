@@ -349,6 +349,13 @@ img {
 	margin-right: 90px;
 }
 
+#img3 {
+	width: 650px;
+	height: 220px;
+	display: block;
+	margin-right: 90px;
+}
+
 ol, ul
 {
    padding-left: 2em;
