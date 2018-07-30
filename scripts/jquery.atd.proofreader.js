@@ -360,7 +360,7 @@ function AtD_Proofreader(container) {
 
 				success: function(errorCount) {
 					if (errorCount == 0)
-						chrome.extension.sendRequest({ command: "alert", text: AtD.getLang('message_no_errors_found', "Keine Fehler gefunden werden") } );
+						chrome.extension.sendRequest({ command: "alert", text: AtD.getLang('message_no_errors_found', "Wir haben keine unfairen Formulierungen gefunden. Allerdings ist unser Tool noch am lernen, also falls es etwas übersehen hat: Gib gerne Bescheid.") } );
 
 					/* once all errors are resolved, this function is called, it's an opportune time
 					   to restore the textarea */
