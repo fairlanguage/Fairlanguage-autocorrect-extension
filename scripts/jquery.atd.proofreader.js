@@ -330,9 +330,9 @@ function AtD_Proofreader(container) {
 			AtD.showProofreader(container, div);
 
 			/* block the enter key in proofreading mode */
-			div.keypress(function (event) {
-				return event.keyCode != 13;
-			});
+			// div.keypress(function (event) {
+			// 	return event.keyCode != 13;
+			// });
 
 			/* tell the editor to sync as you type */
 			div.keyup(function (event) {
