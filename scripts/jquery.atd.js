@@ -22,7 +22,7 @@
 function Fairlanguage_noconsent(callback) {
 
 		// confirm dialog to ask user to agree to Dataprotection agreement.
-		var consentform = confirm("Huhu, die Fairlanguage Browser Extension hier!\n\nUm dir Feedback und Empfehlungen zu deinen Texten geben zu können, müssen wir diese an einen Server senden und dort analysieren. Dies passiert aktuell nicht automatisch, sondern nur, wenn du die Extension aktivierest.\n\nMit der Nutzung unserer Extension stimmst du der Verarbeitung deiner Daten und unserer Datenschutzerklärung (zu finden unter https://www.fairlanguage.com/impressum ) ausdrücklich zu.");
+		var consentform = confirm("Huhu, die Fairlanguage Browser Extension hier!\n\nUm dir Feedback zu deinen Texten auf dieser Seite geben zu können, müssen wir diese an einen Server senden und dort analysieren. Dies passiert aktuell nur, wenn du die Extension aktivierest.\n\nMit der Nutzung stimmst du der Verarbeitung deiner Daten und unserer Datenschutzerklärung (https://www.fairlanguage.com/impressum ) ausdrücklich zu.");
 
 		// if user clicks ok, return of consentform is true. Key 'fairlanguageconsent' is set to 'true' in localStorag
 		if (consentform == true) {
