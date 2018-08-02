@@ -71,10 +71,11 @@ function toAtDHost(url) {
 }
 
 function AtD_start() {
+
 	chrome.extension.sendRequest({ command: 'options' }, function(o) {
 		var enabled = true;
 
-		/* check if this is an ignored site... if it is, return */
+/* check if this is an ignored site... if it is, return */
 		if (document.location) {
 			var current = toAtDHost(document.location.href);
 			var sites = o['sites'].split(/,\s+/);
@@ -82,8 +83,8 @@ function AtD_start() {
 				if (sites[x] != '' && current == sites[x])
 					enabled = false;
 			}
-
-			if (current == 'http://acid3.acidtests.org' || current == 'https://chrome.google.com' || current == 'https://spreadsheets.google.com' || current == 'http://spreadsheets.google.com')
+//not sure if this check actually works..
+				if (current == 'http://acid3.acidtests.org' || current == 'https://chrome.google.com' || current == 'https://spreadsheets.google.com' || current == 'http://spreadsheets.google.com' || current == 'https://docs.google.com/spreadsheets' )
 				enabled = false;
 		}
 
