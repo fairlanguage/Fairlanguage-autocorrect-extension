@@ -13,7 +13,7 @@ div.afterthedeadline-button
   margin: 10px !important;
   top: 0px;
   left: 0px;
-  z-index: 999999998;
+  z-index: 999999998 !important;
 }
 
 div.afterthedeadline-button.afterthedeadline-focus, div.afterthedeadline-button.afterthedeadline-hover, div.afterthedeadline-button:hover
