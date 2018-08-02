@@ -14,6 +14,40 @@
  * Contact      : willis.rh@gmail.com
  */
 
+// var consent = localStorage.getItem('fairlanguageconsent');
+
+
+
+// Function to get users consent on data protection agreement and store it in localStorage
+function Fairlanguage_noconsent(callback) {
+
+		// confirm dialog to ask user to agree to Dataprotection agreement.
+		var consentform = confirm("Huhu, die Fairlanguage Browser Extension hier!\n\nUm dir Feedback und Empfehlungen zu deinen Texten geben zu können, müssen wir diese an einen Server senden und dort analysieren. Dies passiert aktuell nicht automatisch, sondern nur, wenn du die Extension aktivierest.\n\nMit der Nutzung unserer Extension stimmst du der Verarbeitung deiner Daten und unserer Datenschutzerklärung (zu finden unter https://www.fairlanguage.com/impressum ) ausdrücklich zu.");
+
+		// if user clicks ok, return of consentform is true. Key 'fairlanguageconsent' is set to 'true' in localStorag
+		if (consentform == true) {
+		localStorage.setItem('fairlanguageconsent' , 'true');
+	 	console.log('Save for yes to consent. Value in localStorage for fairlanguageconsent:', localStorage.getItem('fairlanguageconsent'), 'value for consentform:', consentform);
+	 	// An dieser Stelle würde ich gerne AtD_Basic (line 44) oder this.check (line 134), was ja quasi AtD_Basic.check sein sollte, aufrufen.
+	 	// solution to start request again, because now it is true, missing..
+	 	callback();
+
+		}
+
+		// if user clicks cancel or 'x', return of consentform is false. Key 'fairlanguageconsent' is set to 'false' in localStorage.
+		else if (consentform == false) {
+		localStorage.setItem('fairlanguageconsent' , 'false');
+	 	console.log('Save for no to consent. Value in localStorage for fairlanguageconsent:', localStorage.getItem('fairlanguageconsent'), 'value for consentform:', consentform);
+		// solution to reset atd icon to normal state missing
+		AtD_proofreaders.forEach(function (proofreader) {
+	 		proofreader.restore();
+	 	})
+
+
+		}
+ 	 };
+
+
 function AtD_Basic() {
 	this.rpc = ''; /* see the proxy.php that came with the AtD/TinyMCE plugin */
 	this.api_key = '';
@@ -108,7 +142,28 @@ function AtD_Basic() {
 		chrome.extension.sendRequest({ command: 'options' }, function(o) {
 			parent.setIgnoreStrings(o.phrases);
 			parent.showTypes(o.options);
+
+// Data Privacy / Data Protection Consent Check. IMPORTANT! This is happening for every new site where the user wants to use the Fairlanguage Extension.
+// If true (consent was given), we send the request to the server
+			if (localStorage.getItem('fairlanguageconsent') == 'true') {
 			parent._check(container, source, callback_f);
+			console.log('Data privacy consent check for true directly after confirm:' , (localStorage.getItem('fairlanguageconsent')));
+			}
+
+// If false (consent not given), we call function 'fairlanguage_noconsent' and don't process the request. Users who don't agree are asked at next attempt to agree.
+			else {
+     		console.log('nothing sent to server due to missing data privacy consent. Please agree to data privacy in order to have your text checked for fair language.', localStorage.getItem('fairlanguageconsent'));
+     		Fairlanguage_noconsent(function(){ parent._check(container, source, callback_f); });
+     	}
+
+
+
+
+	//	here the check is somehow happening, if following line is removed the application does not get a response..
+	// this needs to be dependent on consent true / false.
+	//	parent._check(container, source, callback_f);
+	//			console.log("does this do something?????");
+
 		});
 	};
 
@@ -116,6 +171,7 @@ function AtD_Basic() {
 	this._check = function(container, source, callback_f) {
 		parent.callback_f = callback_f; /* remember the callback for later */
 		parent.remove(container);
+		console.log("this is called after .check");
 
 		var text     = jQuery.trim(source);
 
@@ -371,3 +427,5 @@ AtD_Basic.prototype.suggest = function(element) {
 AtD_Basic.prototype._removeWords = function(container, w) {
 	return this.core.removeWords(container, w);
 };
+
+

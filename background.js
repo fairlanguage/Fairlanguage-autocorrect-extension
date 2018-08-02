@@ -7,6 +7,7 @@ function toHost(url) {
         return host;
 }
 
+
 /* define default values for Language and the keyboard shortcut */
 if (localStorage['language'] == undefined)
 	localStorage['language'] = 'English';
@@ -18,13 +19,17 @@ if (localStorage['button'] == undefined)
 	localStorage['button'] = 'true';
 if (localStorage['message'] == undefined)
 	localStorage['message'] = 'true';
+//not sure if this needs to be set... seems to work without very well. 
+// if (localStorage['fairlanguageconsent'] == undefined)
+//	localStorage['fairlanguageconsent'] = 'null';
+
 
 /* always disable auto-proofread feature in older versions of Chrome */
 if (chrome.pageAction['setPopup'] == undefined)
 	localStorage['auto'] = false;
 
 /* we're going to get some nasty errors if our options are not set */
-var options = ['options', 'sites', 'phrases', 'guess'];
+var options = ['options', 'sites', 'phrases', 'guess', 'consent'];
 for (var x = 0; x < options.length; x++) {
 	if (localStorage[options[x]] == undefined)
 		localStorage[options[x]] = '';
