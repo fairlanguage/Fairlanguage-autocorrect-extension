@@ -14,6 +14,10 @@ function AtD_TEXTAREA_isExempt(node) {
         // exempt paypal checkout seller-notes area
         if (node.attr('id') == 'seller-notes')
                 return true;
+								
+				// exempt second icon in google translate textarea
+        if (node.attr('id') == 'source-is')
+                return true;
 
 		/* exclude Yahoo Mail's fields */
 		if (/compHeaderField/.test(node.attr('class')))
