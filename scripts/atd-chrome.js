@@ -84,7 +84,7 @@ function AtD_start() {
 					enabled = false;
 			}
 //not sure if this check actually works..
-				if (current == 'http://acid3.acidtests.org' || current == 'https://chrome.google.com' || current == 'https://spreadsheets.google.com' || current == 'http://spreadsheets.google.com' || current == 'https://docs.google.com/spreadsheets' )
+				if (current == 'http://acid3.acidtests.org' || current == 'https://trello.com' || current == 'https://chrome.google.com' || current == 'https://spreadsheets.google.com' || current == 'http://spreadsheets.google.com' || current == 'https://docs.google.com' )
 				enabled = false;
 		}
 
