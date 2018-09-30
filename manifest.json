@@ -1,6 +1,6 @@
 {
   "name": "Fairlanguage Prototype",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "manifest_version":2,
   "description": "Fairlanguage ist dein Autokorrektur Tool, das dir hilft, eine faire, gendergerechte Sprache zu verwenden.",
 
@@ -22,7 +22,6 @@
       "background.js"
     ]
   },
-  "content_security_policy": "script-src 'unsafe-eval'; object-src 'unsafe-eval'",
 
   "permissions": [
      "tabs",
