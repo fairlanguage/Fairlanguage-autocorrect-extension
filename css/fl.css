@@ -2,7 +2,7 @@
    *props* to Chrome for not providing a way to reference the current extensions resources from CSS.
    Hard coding the ID does not work because the ID is different when packaged. Props Chrome, Props!!! */
 
-div.afterthedeadline-button
+div.fl-button
 {
     /* general icon in text input */
   position: absolute !important;
@@ -16,12 +16,12 @@ div.afterthedeadline-button
   z-index: 999999998 !important;
 }
 
-div.afterthedeadline-button.afterthedeadline-focus, div.afterthedeadline-button.afterthedeadline-hover, div.afterthedeadline-button:hover
+div.fl-button.fl-focus, div.fl-button.fl-hover, div.fl-button:hover
 { /* icon when text input is in focus */
   background-image: url(../images/fairlanguage_logo_16_white_color.png) !important;
 }
 
-div.afterthedeadline-button.afterthedeadline-done
+div.fl-button.fl-done
 {
   /* icon when analysis was done */
   background-image: url(../images/fairlanguage_logo_16_color_green.png) !important;
@@ -34,7 +34,7 @@ from {
   }
 }
 
-/* AtD error styles */
+/* FL error styles */
 
 .hiddenSpellError
 {
@@ -156,15 +156,15 @@ div.suggestmenu .foot div
    outline:none
 }
 
-/* make it so AtD can work with TinyMCE */
-div #AtD_Content *
+/* make it so Fairlanguage Exteniosn can work with TinyMCE */
+div #FL_Content *
 {
    white-space: pre-wrap !important;
    overflow: visible !important;
 }
 
 /* make it so some font elements are inherited */
-div #AtD_Content div, div #AtD_Content p, div #AtD_Content span
+div #FL_Content div, div #FL_Content p, div #FL_Content span
 {
    font-size: inherit !important;
    font-family: inherit !important;

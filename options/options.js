@@ -47,7 +47,7 @@ jQuery(function() {
 			$('#auto').change(function(event) {
 				localStorage['auto'] = $('#auto').attr('checked') != undefined;
 				if (localStorage['auto'] == 'true')
-					alert("After the Deadline will now check your spelling, style, and grammar before you submit a form.\n\nThis feature conflicts with a few sites that use JavaScript to prevent multiple form submits.\n\nIf you are unable to submit a form:\n\n1) disable this feature\n\nor\n\n2) click the AtD icon in the address bar and select 'Disable on this site'");
+					alert("Fairlanguage will now check your language before you submit a form.\n\nThis feature conflicts with a few sites that use JavaScript to prevent multiple form submits.\n\nIf you are unable to submit a form:\n\n1) disable this feature\n\nor\n\n2) click the Fairlanguage icon in the address bar and select 'Disable on this site'");
 			});
 
 			/* set the auto-proofread settings */

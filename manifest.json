@@ -1,6 +1,6 @@
 {
   "name": "Fairlanguage Prototype",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "manifest_version":2,
   "description": "Fairlanguage ist dein Autokorrektur Tool, das dir hilft, eine faire, gendergerechte Sprache zu verwenden.",
 
@@ -37,20 +37,20 @@
       "matches": ["http://*/*", "https://*/*"],
 
       "js": ["scripts/jquery-1.8.3.js",
-             "scripts/atd.core.js",
-             "scripts/jquery.atd.js",
-             "scripts/jquery.atd.proofreader.js",
-             "scripts/jquery.atd.div.js",
-             "scripts/jquery.atd.iframe.js",
+             "scripts/fl.core.js",
+             "scripts/jquery.fl.js",
+             "scripts/jquery.fl.proofreader.js",
+             "scripts/jquery.fl.div.js",
+             "scripts/jquery.fl.iframe.js",
              "scripts/widget.js",
              "scripts/autoproof.js",
-             "scripts/atd-chrome.js"],
+             "scripts/fl-chrome.js"],
 
      "all_frames": true,
      "run_at": "document_end"
   }],
   "web_accessible_resources" : [
-    "css/atd.css",
+    "css/fl.css",
     "images/*.png"
   ]
 }

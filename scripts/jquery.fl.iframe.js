@@ -1,4 +1,4 @@
-function AtD_IFRAME_isExempt(nodez) {
+function FL_IFRAME_isExempt(nodez) {
   if (typeof CKEditor !== 'undefined')
     return true;
 
@@ -41,38 +41,38 @@ function AtD_IFRAME_isExempt(nodez) {
 	return true;
 };
 
-function AtD_IFRAME_Proofreader(container) {
-	var AtD            = new AtD_Proofreader(container);
+function FL_IFRAME_Proofreader(container) {
+	var FL            = new FL_Proofreader(container);
 
-	AtD.setValue = function(component, value) {
+	FL.setValue = function(component, value) {
 		return component.context.contentDocument.body.innerHTML = value;
 	};
 
-	AtD.getValue = function(component) {
+	FL.getValue = function(component) {
 		return component.context.contentDocument.body.innerHTML.replace(/\&nbsp\;/g, ' ');
 	};
 
-	AtD.getCheckValue = function(component) {
+	FL.getCheckValue = function(component) {
 		return component.context.contentDocument.body.innerHTML.replace(/\&nbsp\;/g, ' ').replace(/\&lt\;/g, '<').replace(/\&gt\;/g, '>').replace(/\&amp\;/g, '&');
 	}
 
 	/* changing/setting scroll position is handled by the injected HTML */
-	AtD.getScrollPosition = function() {
+	FL.getScrollPosition = function() {
 		/* update the relevant iframe with an */
-		if (AtD.isProofreading()) {
-			AtD.getOriginal().attr('AtD_scroll', AtD.getActiveComponent().scrollTop());
+		if (FL.isProofreading()) {
+			FL.getOriginal().attr('FL_scroll', FL.getActiveComponent().scrollTop());
 		}
 	};
 
-	AtD.setScrollPosition = function(value) {
+	FL.setScrollPosition = function(value) {
 		/* changing the proofreading mode from proofreader -> editor */
-		if (!AtD.isProofreading()) {
-			jQuery('body').append("<SCRIPT>ATD_SCROLL_ADJUST__();</SCRIPT>");
+		if (!FL.isProofreading()) {
+			jQuery('body').append("<SCRIPT>FL_SCROLL_ADJUST__();</SCRIPT>");
 		}
 	};
 
-	AtD.adjustWidget = function(offset) {
-		if (AtD.isProofreading()) {
+	FL.adjustWidget = function(offset) {
+		if (FL.isProofreading()) {
 			offset.top += 4;
 			offset.left += 3;
 		}
@@ -81,42 +81,42 @@ function AtD_IFRAME_Proofreader(container) {
 		offset.left -= 1;
 
 		/* check if there is a scrollbar, if there is, adjust accordingly */
-		if (AtD.getOriginal().attr('id') == 'wys_frame') {
+		if (FL.getOriginal().attr('id') == 'wys_frame') {
 			offset.left -= 15; /* this is a google docs hack, there is always a scrollbar */
 		}
-		else if (AtD.isProofreading()) {
-			var target = AtD.getActiveComponent();
+		else if (FL.isProofreading()) {
+			var target = FL.getActiveComponent();
 			target = target.context == undefined ? target[0] : target.context;
 
 			if (target != undefined && target.scrollHeight > target.clientHeight)
 				offset.left -= 15;
 		}
 		else {
-			var target = AtD.getOriginal().context;
+			var target = FL.getOriginal().context;
 			if (target.contentDocument && target.contentDocument.documentElement && (target.contentDocument.documentElement.clientHeight > target.clientHeight))
 				offset.left -= 15;
 		}
 	};
 
-	AtD.showProofreader = function(component, proofreader) {
-		component.attr('AtD_active', 'true');
-		AtD.displayValue = component.css('display');
+	FL.showProofreader = function(component, proofreader) {
+		component.attr('FL_active', 'true');
+		FL.displayValue = component.css('display');
 
 		proofreader.css('display', 'none');
 		component.after(proofreader);
 
-		jQuery('body').append("<SCRIPT>if (typeof ATD_INHERIT__ == 'undefined') { (function(l) { var res = document.createElement('SCRIPT'); res.type = 'text/javascript'; res.src = l; document.getElementsByTagName('head')[0].appendChild(res); })('"+ chrome.extension.getURL('scripts/inherit-style.js') +"'); } else { ATD_INHERIT__(); }</SCRIPT>");
+		jQuery('body').append("<SCRIPT>if (typeof FL_INHERIT__ == 'undefined') { (function(l) { var res = document.createElement('SCRIPT'); res.type = 'text/javascript'; res.src = l; document.getElementsByTagName('head')[0].appendChild(res); })('"+ chrome.extension.getURL('scripts/inherit-style.js') +"'); } else { FL_INHERIT__(); }</SCRIPT>");
 	};
 
-	AtD.createProofreader = function(contents) {
-		return jQuery('<div><div><div id="AtD_Content">' + contents + '</div></div></div>');
+	FL.createProofreader = function(contents) {
+		return jQuery('<div><div><div id="FL_Content">' + contents + '</div></div></div>');
 	};
 
-	AtD.inheritLookAndFeel = function(component, proofreader) {
+	FL.inheritLookAndFeel = function(component, proofreader) {
 		/* load a script to go in like special forces and update some styles */
 		return proofreader;
 	}
 
-	return AtD;
+	return FL;
 };
 

@@ -70,7 +70,7 @@ function checkTab(tabId, url, change) {
 		chrome.pageAction.hide(tabId);
 	}
 
-	/* show AtD will have nothing to do with these pages */
+	/* show Fairlanguage Extension will have nothing to do with these pages */
 	if (aurl == 'http://acid3.acidtests.org' || aurl == 'https://chrome.google.com' || aurl == 'https://spreadsheets.google.com' || aurl == 'http://spreadsheets.google.com' || aurl == 'https://docs.google.com/spreadsheets')  {
 		chrome.pageAction.hide(tabId);
 		enabled = false;
@@ -88,7 +88,7 @@ function refreshTabs() {
 	});
 }
 
-/* setup code to show whether AtD is enabled/disabled on the current site */
+/* setup code to show whether Fairlanguage Extension is enabled/disabled on the current site */
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 	if (changeInfo.url) {
 		checkTab(tabId, changeInfo.url, true);
@@ -151,7 +151,7 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
 	};
 
 	if (localStorage['user-key'] == undefined)
-		localStorage['user-key'] = 'atd-chrome-' + (new Date()).getTime();
+		localStorage['user-key'] = 'fl-chrome-' + (new Date()).getTime();
 
 	if (request.data.length)
 		request.data = encodeURI(request.data).replace(/&/g, '%26');

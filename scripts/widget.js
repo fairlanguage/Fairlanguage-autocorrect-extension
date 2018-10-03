@@ -1,5 +1,5 @@
-function AtD_Widget(component, parent) {
-	var widget = jQuery('<div class="afterthedeadline-button">&nbsp;</div>');
+function FL_Widget(component, parent) {
+	var widget = jQuery('<div class="fl-button">&nbsp;</div>');
 	var _mode  = "edit";
 	var my     = this;
 
@@ -8,11 +8,11 @@ function AtD_Widget(component, parent) {
 
 	/* attach listeners to make the widget pretty when it's supposed to be */
 	var showButton = function(event) {
-		widget.attr('class', widget.attr('class') + ' afterthedeadline-hover');
+		widget.attr('class', widget.attr('class') + ' fl-hover');
 	};
 
 	var hideButton = function(event) {
-		widget.attr('class', widget.attr('class').replace(/(\s+|\b)afterthedeadline-hover(\s+|\b)/, '$1$2'));
+		widget.attr('class', widget.attr('class').replace(/(\s+|\b)fl-hover(\s+|\b)/, '$1$2'));
 	};
 
 	component.focusin(showButton);
@@ -24,9 +24,9 @@ function AtD_Widget(component, parent) {
 		_mode = m;
 
 		if (m == 'edit')
-			widget.attr('class', 'afterthedeadline-button');
+			widget.attr('class', 'fl-button');
 		else
-			widget.attr('class', 'afterthedeadline-button afterthedeadline-done');
+			widget.attr('class', 'fl-button fl-done');
 	}
 
 	this.getWidget = function() {

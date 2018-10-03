@@ -1,19 +1,11 @@
-/*
- * atd.core.js - A building block to create a front-end for AtD (from http://github.com/Automattic/atd-core)
- * Author      : Raphael Mudge
- * License     : LGPL
- * Project     : http://open.afterthedeadline.com
- * Discuss     : https://groups.google.com/forum/#!forum/atd-developers
- */
-
 /* EXPORTED_SYMBOLS is set so this file can be a JavaScript Module */
-var EXPORTED_SYMBOLS = ['AtDCore'];
+var EXPORTED_SYMBOLS = ['FLCore'];
 
-function AtDCore() {
-	/* these are the categories of errors AtD should ignore */
+function FLCore() {
+	/* these are the categories of errors Fairlanguage Extension should ignore */
 	this.ignore_types = [ 'Cliches', 'Complex Expression', 'Diacritical Marks', 'Double Negatives', 'Hidden Verbs', 'Jargon Language', 'Passive voice', 'Phrases to Avoid', 'Redundant Expression'];
 
-	/* these are the phrases AtD should ignore */
+	/* these are the phrases Fairlanguage Extension should ignore */
 	this.ignore_strings = {};
 
 	/* Localized strings */
@@ -24,14 +16,14 @@ function AtDCore() {
  * Internationalization Functions
  */
 
-AtDCore.prototype.getLang = function(key, defaultk) {
+FLCore.prototype.getLang = function(key, defaultk) {
 	if (this.i18n[key] == undefined)
 		return defaultk;
 
 	return this.i18n[key];
 };
 
-AtDCore.prototype.addI18n = function(localizations) {
+FLCore.prototype.addI18n = function(localizations) {
 	this.i18n = localizations;
 };
 
@@ -39,7 +31,7 @@ AtDCore.prototype.addI18n = function(localizations) {
  * Setters
  */
 
-AtDCore.prototype.setIgnoreStrings = function(string) {
+FLCore.prototype.setIgnoreStrings = function(string) {
 	var parent = this;
 
 	this.map(string.split(/,\s*/g), function(string) {
@@ -47,7 +39,7 @@ AtDCore.prototype.setIgnoreStrings = function(string) {
 	});
 };
 
-AtDCore.prototype.showTypes = function(string) {
+FLCore.prototype.showTypes = function(string) {
 	var show_types = string.split(/,\s*/g);
 	var types = {};
 
@@ -85,7 +77,7 @@ AtDCore.prototype.showTypes = function(string) {
  * Error Parsing Code
  */
 
-AtDCore.prototype.makeError = function(error_s, tokens, type, seps, pre) {
+FLCore.prototype.makeError = function(error_s, tokens, type, seps, pre) {
 	var struct = new Object();
 	struct.type = type;
 	struct.string = error_s;
@@ -109,7 +101,7 @@ AtDCore.prototype.makeError = function(error_s, tokens, type, seps, pre) {
 	return struct;
 };
 
-AtDCore.prototype.addToErrorStructure = function(errors, list, type, seps) {
+FLCore.prototype.addToErrorStructure = function(errors, list, type, seps) {
 	var parent = this;
 
 	this.map(list, function(error) {
@@ -134,7 +126,7 @@ AtDCore.prototype.addToErrorStructure = function(errors, list, type, seps) {
 	});
 };
 
-AtDCore.prototype.buildErrorStructure = function(enrichmentList, spellingList, grammarList) {
+FLCore.prototype.buildErrorStructure = function(enrichmentList, spellingList, grammarList) {
 	var seps   = this._getSeparators();
 	var errors = {};
 
@@ -145,7 +137,7 @@ AtDCore.prototype.buildErrorStructure = function(enrichmentList, spellingList, g
 	return errors;
 };
 
-AtDCore.prototype._getSeparators = function() {
+FLCore.prototype._getSeparators = function() {
 	var re = '', i;
 	var str = '"s!#$%&()*+,./:;<=>?@[\]^_{|}';
 
@@ -156,7 +148,7 @@ AtDCore.prototype._getSeparators = function() {
 	return "(?:(?:[\xa0" + re  + "])|(?:\\-\\-))+";
 };
 
-AtDCore.prototype.processXML = function(responseXML) {
+FLCore.prototype.processXML = function(responseXML) {
 
 	/* types of errors to ignore */
 	var types = {};
@@ -264,7 +256,7 @@ AtDCore.prototype.processXML = function(responseXML) {
 	return { errors: errorStruct, count: ecount, suggestions: this.suggestions };
 };
 
-AtDCore.prototype.findSuggestion = function(element) {
+FLCore.prototype.findSuggestion = function(element) {
         var text = element.innerHTML;
         var context = ( this.getAttrib(element, 'pre') + "" ).replace(/[\\,!\\?\\."\s]/g, '');
         if (this.getAttrib(element, 'pre') == undefined)
@@ -303,7 +295,7 @@ TokenIterator.prototype.next = function() {
 	this.last += current.length + 1;
 	this.index++;
 
-	/* strip single quotes from token, AtD does this when presenting errors */
+	/* strip single quotes from token, Fairlanguage does this when presenting errors */
 	if (current != "") {
 		if (current[0] == "'")
 			current = current.substring(1, current.length);
@@ -346,7 +338,7 @@ TokenIterator.prototype.peek = function(n) {
 /*
  *  code to manage highlighting of errors
  */
-AtDCore.prototype.markMyWords = function(container_nodes, errors) {
+FLCore.prototype.markMyWords = function(container_nodes, errors) {
 	var seps  = new RegExp(this._getSeparators());
 	var nl = new Array();
 	var ecount = 0; /* track number of highlighted errors */
@@ -477,7 +469,7 @@ AtDCore.prototype.markMyWords = function(container_nodes, errors) {
 	return ecount;
 };
 
-AtDCore.prototype._walk = function(elements, f) {
+FLCore.prototype._walk = function(elements, f) {
 	var i;
 	for (i = 0; i < elements.length; i++) {
 		f.call(f, elements[i]);
@@ -485,7 +477,7 @@ AtDCore.prototype._walk = function(elements, f) {
 	}
 };
 
-AtDCore.prototype.removeWords = function(node, w) {
+FLCore.prototype.removeWords = function(node, w) {
 	var count = 0;
 	var parent = this;
 
@@ -505,18 +497,18 @@ AtDCore.prototype.removeWords = function(node, w) {
 	return count;
 };
 
-AtDCore.prototype.isEmptySpan = function(node) {
+FLCore.prototype.isEmptySpan = function(node) {
 	return (this.getAttrib(node, 'class') == "" && this.getAttrib(node, 'style') == "" && this.getAttrib(node, 'id') == "" && !this.hasClass(node, 'Apple-style-span') && this.getAttrib(node, 'mce_name') == "");
 };
 
-AtDCore.prototype.isMarkedNode = function(node) {
+FLCore.prototype.isMarkedNode = function(node) {
 	return (this.hasClass(node, 'hiddenGrammarError') || this.hasClass(node, 'hiddenSpellError') || this.hasClass(node, 'hiddenSuggestion'));
 };
 
 /*
  * Context Menu Helpers
  */
-AtDCore.prototype.applySuggestion = function(element, suggestion) {
+FLCore.prototype.applySuggestion = function(element, suggestion) {
 	if (suggestion == '(omit)') {
 		this.remove(element);
 	}
@@ -531,15 +523,15 @@ AtDCore.prototype.applySuggestion = function(element, suggestion) {
  * Check for an error
  */
 
-AtDCore.prototype.hasErrorMessage = function(xmlr) {
+FLCore.prototype.hasErrorMessage = function(xmlr) {
 	return (xmlr != undefined && xmlr.getElementsByTagName('message').item(0) != null);
 };
 
-AtDCore.prototype.getErrorMessage = function(xmlr) {
+FLCore.prototype.getErrorMessage = function(xmlr) {
 	return xmlr.getElementsByTagName('message').item(0);
 };
 
 /* this should always be an error, alas... not practical */
-AtDCore.prototype.isIE = function() {
+FLCore.prototype.isIE = function() {
 	return navigator.appName == 'Microsoft Internet Explorer';
 };

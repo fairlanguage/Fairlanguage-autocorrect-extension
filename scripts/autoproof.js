@@ -1,5 +1,5 @@
-function AtD_form_handler(e) {
-	if (!AtD_autoproof)
+function FL_form_handler(e) {
+	if (!FL_autoproof)
 		return;
 
 	/* ignore Facebook's "view all N comments" link which is really a form submit, same for like, unlike, and friends */
@@ -10,10 +10,10 @@ function AtD_form_handler(e) {
 	}
 
 	/* we've already warned the user or they've already checked their stuff */
-	if (jQuery(e.target).data('AtD_Warned') == true)
+	if (jQuery(e.target).data('FL_Warned') == true)
 		return;
 
-	jQuery(e.target).data('AtD_Warned', true);
+	jQuery(e.target).data('FL_Warned', true);
 
 	/* find all proofreaders that have this form as a descendant */
 	var form = jQuery(e.target).closest('form');
@@ -21,16 +21,16 @@ function AtD_form_handler(e) {
 		return;
 
 	var checkme = [];
-	for (var x = 0; x < AtD_proofreaders.length; x++) {
-		if (!AtD_proofreaders[x].hasBeenChecked() && AtD_proofreaders[x].getOriginal().closest('form')[0] == form[0])
-			checkme.push(AtD_proofreaders[x]);
+	for (var x = 0; x < FL_proofreaders.length; x++) {
+		if (!FL_proofreaders[x].hasBeenChecked() && FL_proofreaders[x].getOriginal().closest('form')[0] == form[0])
+			checkme.push(FL_proofreaders[x]);
 	}
 
 	var totalErrors = 0;
 
 	/* this function continues the process of submitting the form (if necessary) */
 	var finalize = function() {
-		if (totalErrors == 0 || confirm("After the Deadline detected spelling and grammar errors which you have not reviewed. Press OK to submit the form, or Cancel to review the errors.")) {
+		if (totalErrors == 0 || confirm("Fairlanguage detected errors which you have not reviewed. Press OK to submit the form, or Cancel to review the errors.")) {
 			window.setTimeout(function() {
 				jQuery(e.target).click();
 			}, 10);

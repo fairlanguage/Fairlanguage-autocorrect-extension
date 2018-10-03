@@ -1,19 +1,3 @@
-/*
- * atd.core.js - A building block to create a front-end for AtD (from http://github.com/Automattic/atd-core, incorporated here).
- * Author      : Raphael Mudge
- * License     : LGPL
- * Project     : http://open.afterthedeadline.com
- * Discuss     : https://groups.google.com/forum/#!forum/atd-developers
- *
- * Derived from:
- *
- * jquery.spellchecker.js - a simple jQuery Spell Checker
- * Copyright (c) 2008 Richard Willis
- * MIT license  : http://www.opensource.org/licenses/mit-license.php
- * Project      : http://jquery-spellchecker.googlecode.com
- * Contact      : willis.rh@gmail.com
- */
-
 // var consent = localStorage.getItem('fairlanguageconsent');
 
 
@@ -28,8 +12,7 @@ function Fairlanguage_noconsent(callback) {
 		if (consentform == true) {
 		localStorage.setItem('fairlanguageconsent' , 'true');
 	 	console.log('Save for yes to consent. Value in localStorage for fairlanguageconsent:', localStorage.getItem('fairlanguageconsent'), 'value for consentform:', consentform);
-	 	// An dieser Stelle würde ich gerne AtD_Basic (line 44) oder this.check (line 134), was ja quasi AtD_Basic.check sein sollte, aufrufen.
-	 	// solution to start request again, because now it is true, missing..
+		// magicmagicmagic. After user has given consent, we check again.	 	
 	 	callback();
 
 		}
@@ -38,8 +21,8 @@ function Fairlanguage_noconsent(callback) {
 		else if (consentform == false) {
 		localStorage.setItem('fairlanguageconsent' , 'false');
 	 	console.log('Save for no to consent. Value in localStorage for fairlanguageconsent:', localStorage.getItem('fairlanguageconsent'), 'value for consentform:', consentform);
-		// solution to reset atd icon to normal state missing
-		AtD_proofreaders.forEach(function (proofreader) {
+		// Sorry, no fair language for you then.
+		FL_proofreaders.forEach(function (proofreader) {
 	 		proofreader.restore();
 	 	})
 
@@ -48,8 +31,8 @@ function Fairlanguage_noconsent(callback) {
  	 };
 
 
-function AtD_Basic() {
-	this.rpc = ''; /* see the proxy.php that came with the AtD/TinyMCE plugin */
+function FL_Basic() {
+	this.rpc = ''; /* see the proxy.php that came with the At D/TinyMCE plugin */
 	this.api_key = '';
 	this.i18n = {};
 	this.listener = {};
@@ -78,7 +61,7 @@ function AtD_Basic() {
 
 
 	this.core = (function() {
-		var core = new AtDCore();
+		var core = new FLCore();
 
 		core.hasClass = function(node, className) {
 			return jQuery(node).hasClass(className);
@@ -98,13 +81,13 @@ function AtD_Basic() {
         		return jQuery.makeArray(parent.find('span'));
 		};
 
-		/* taken from AtD/Firefox, thanks Mitcho */
+
 		core.create = function(string) {
 			// replace out all tags with &-equivalents so that we preserve tag text.
 			string = string.replace(/\&/g,'&amp;');
 			string = string.replace(/\</g,'&lt;').replace(/\>/g,'&gt;');
 
-			// find all instances of AtD-created spans
+			// find all instances of FL-created spans
 			var matches = string.match(/\&lt\;span class=\"hidden\w+?\" pre="[^"]*"\&gt\;.*?\&lt\;\/span\&gt\;/g);
 
 			// ... and fix the tags in those substrings.
@@ -204,27 +187,27 @@ function AtD_Basic() {
 	};
 }
 
-AtD_Basic.prototype.getLang = function(key, defaultk) {
+FL_Basic.prototype.getLang = function(key, defaultk) {
 	if (this.i18n[key] == undefined)
 		return defaultk;
 
 	return this.i18n[key];
 };
 
-AtD_Basic.prototype.addI18n = function(localizations) {
+FL_Basic.prototype.addI18n = function(localizations) {
 	this.i18n = localizations;
 	this.core.addI18n(localizations);
 };
 
-AtD_Basic.prototype.setIgnoreStrings = function(string) {
+FL_Basic.prototype.setIgnoreStrings = function(string) {
 	this.core.setIgnoreStrings(string);
 };
 
-AtD_Basic.prototype.showTypes = function(string) {
+FL_Basic.prototype.showTypes = function(string) {
 	this.core.showTypes(string);
 };
 
-AtD_Basic.prototype.useSuggestion = function(word) {
+FL_Basic.prototype.useSuggestion = function(word) {
 	this.core.applySuggestion(this.errorElement, word);
 	this.counter --;
 	if (this.counter == 0 && this.callback_f != undefined && this.callback_f.success != undefined)
@@ -233,7 +216,7 @@ AtD_Basic.prototype.useSuggestion = function(word) {
 		this.sync();
 };
 
-AtD_Basic.prototype.remove = function(container) {
+FL_Basic.prototype.remove = function(container) {
 	/* destroy the menu when we remove the HTML */
 	if (this.lastSuggest)
 		this.lastSuggest.remove();
@@ -242,7 +225,7 @@ AtD_Basic.prototype.remove = function(container) {
 	this._removeWords(container, null);
 };
 
-AtD_Basic.prototype.processXML = function(container, responseXML) {
+FL_Basic.prototype.processXML = function(container, responseXML) {
 
 	var results = this.core.processXML(responseXML);
 
@@ -255,7 +238,7 @@ AtD_Basic.prototype.processXML = function(container, responseXML) {
 	return results.count;
 };
 
-AtD_Basic.prototype.editSelection = function() {
+FL_Basic.prototype.editSelection = function() {
 	var parent = this.errorElement.parent();
 
 	if (this.callback_f != undefined && this.callback_f.editSelection != undefined)
@@ -268,7 +251,7 @@ AtD_Basic.prototype.editSelection = function() {
 	}
 };
 
-AtD_Basic.prototype.ignoreAll = function(container) {
+FL_Basic.prototype.ignoreAll = function(container) {
 	var target = this.errorElement.text();
 	var removed = this._removeWords(container, target);
 
@@ -283,7 +266,7 @@ AtD_Basic.prototype.ignoreAll = function(container) {
 	}
 };
 
-AtD_Basic.prototype.suggest = function(element) {
+FL_Basic.prototype.suggest = function(element) {
 	var parent = this;
 
 	/* construct the menu if it doesn't already exist */
@@ -424,7 +407,7 @@ AtD_Basic.prototype.suggest = function(element) {
 	}, 10);
 };
 
-AtD_Basic.prototype._removeWords = function(container, w) {
+FL_Basic.prototype._removeWords = function(container, w) {
 	return this.core.removeWords(container, w);
 };
 

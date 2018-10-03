@@ -1,4 +1,4 @@
-/* This script inherits styles from an iframe onto the AtD content div. It has to execute
+/* This script inherits styles from an iframe onto the FL content div. It has to execute
    directly on the page because Chrome's dual-DOM implementation makes accessing this 
    information in an iframe impossible.
 
@@ -6,12 +6,12 @@
    2. can't execute content scripts on dynamically generated iframes with an empty src="" tag
 */
 
-function ATD_SCROLL_ADJUST__() {
+function FL_SCROLL_ADJUST__() {
 	/* find the iframe we want to inherit properties from */
 	var findIframe = function() {
 		var frames = document.getElementsByTagName('iframe');
 		for (var x = 0; x < frames.length; x++) {
-			if (frames[x].getAttribute('AtD_scroll') != '') {
+			if (frames[x].getAttribute('FL_scroll') != '') {
 				return frames[x];
 			}
 		}
@@ -20,7 +20,7 @@ function ATD_SCROLL_ADJUST__() {
 
 	var adjustScroll = function(frame) {
 		/* record the scroll value */
-		var scrollValue = frame.getAttribute('AtD_scroll');
+		var scrollValue = frame.getAttribute('FL_scroll');
 
 		/* set it based on whatever mechanism it needs to be set through */
 		if (frame.contentWindow && frame.contentWindow.scrollbars != undefined && frame.contentWindow.scrollbars.visible) {
@@ -36,12 +36,12 @@ function ATD_SCROLL_ADJUST__() {
 		adjustScroll(frame);
 };
 
-function ATD_INHERIT__() {
+function FL_INHERIT__() {
 	/* find the iframe we want to inherit properties from */
 	var findIframe = function() {
 		var frames = document.getElementsByTagName('iframe');
 		for (var x = 0; x < frames.length; x++) {
-			if (frames[x].getAttribute('AtD_active') == 'true') {
+			if (frames[x].getAttribute('FL_active') == 'true') {
 				return frames[x];
 			}
 		}
@@ -59,7 +59,7 @@ function ATD_INHERIT__() {
 
 	/* this function sets everything up */
 	var inheritProperties = function(frame) {
-		var _body = document.getElementById("AtD_Content");
+		var _body = document.getElementById("FL_Content");
 		var _html = _body.parentNode;
 		var _top  = _html.parentNode;
 
@@ -132,4 +132,4 @@ function ATD_INHERIT__() {
 	if (frame != undefined)
 		inheritProperties(frame);
 };
-ATD_INHERIT__();
+FL_INHERIT__();
