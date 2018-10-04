@@ -1,6 +1,7 @@
 function FL_TEXTAREA_isExempt(node) {
-	if (node.width() == 0 || node.height() == 0)
-		return true;
+		
+		if (node.width() == 0 || node.height() == 0)
+				return true;
 
         // exempt hotmail to/cc/bcc fields
         if (/.*?\$[iI]nputBox/.test( node.attr('id') ))
@@ -15,11 +16,15 @@ function FL_TEXTAREA_isExempt(node) {
         if (node.attr('id') == 'seller-notes')
                 return true;
 								
-				// exempt second icon in google translate textarea
+		// exempt second icon in google translate textarea
         if (node.attr('id') == 'source-is')
                 return true;
 
-		/* exclude Yahoo Mail's fields */
+  		// does not work. exempt textareas where spellcheck is false incl. Grammarly ghost editorthingy
+        // if ( node.attr('id') == 'gr_ver_2')
+        //       return true;
+
+		// exclude Yahoo Mail's fields
 		if (/compHeaderField/.test(node.attr('class')))
 				return true;
 
@@ -27,6 +32,7 @@ function FL_TEXTAREA_isExempt(node) {
         if (node.attr('id') == 'codewindow')
                 return true;
 
+       	// I gues it excludes non visible textareas..
 		if (node.css('display') == 'none')
 				return true;
 

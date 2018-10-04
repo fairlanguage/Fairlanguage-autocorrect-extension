@@ -1,5 +1,5 @@
 function FL_Widget(component, parent) {
-	var widget = jQuery('<div class="fl-button">&nbsp;</div>');
+	var widget = jQuery('<div title="Klicke das Fairlanguage Icon und wir helfen dir dabei, deinen Text fair zu machen. Wenn du fertig bist, klicke einfach noch einmal und die Extension geht wieder aus." class="fl-button">&nbsp;</div>');
 	var _mode  = "edit";
 	var my     = this;
 

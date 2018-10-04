@@ -6,9 +6,9 @@ div.fl-button
 {
     /* general icon in text input */
   position: absolute !important;
-  background: url(../images/fairlanguage_logo_16_black_whitebg.png) transparent no-repeat top left !important;
-  width: 20px !important;
-  height: 20px !important;
+  background: url(../images/Fairlanguage-icon-40x40-notinfocus.png) transparent no-repeat top left !important;
+  width: 40px !important;
+  height: 40px !important;
   padding: 0px !important;
   margin: 10px !important;
   top: 0px;
@@ -18,13 +18,13 @@ div.fl-button
 
 div.fl-button.fl-focus, div.fl-button.fl-hover, div.fl-button:hover
 { /* icon when text input is in focus */
-  background-image: url(../images/fairlanguage_logo_16_white_color.png) !important;
+  background-image: url(../images/Fairlanguage-icon-40x40-focus.png) !important;
 }
 
 div.fl-button.fl-done
 {
   /* icon when analysis was done */
-  background-image: url(../images/fairlanguage_logo_16_color_green.png) !important;
+  background-image: url(../images/Fairlanguage-icon-40x40-active.png) !important;
           animation: rotating-function 1.25s linear infinite;
 from {
     -webkit-transform: rotate(0deg);
