@@ -381,9 +381,9 @@ function FL_Proofreader(container) {
 					widget.getWidget().unbind('click', disableClick);
 
 					if (reason == undefined)
-						alert( FL.getLang('message_server_error_short', "There was an error communicating with the spell checking service.") );
+						alert( FL.getLang('message_server_error_short', "Oh Noo! There was an error communicating with the Fairlanguage service. Feel free to get in contact with us and we will figure out what is going on.") );
 					else
-						alert( FL.getLang('message_server_error_short', "There was an error communicating with the spell checking service.") + "\n\n" + reason );
+						alert( FL.getLang('message_server_error_short', "Oh Noo! There was an error communicating with the Fairlanguage service. Feel free to get in contact with us. Feel free to get in contact with us and we will figure out what is going on.") + "\n\n" + reason );
 
 					/* restore the text area since there won't be any highlighted spelling errors */
 					FL.restore();
