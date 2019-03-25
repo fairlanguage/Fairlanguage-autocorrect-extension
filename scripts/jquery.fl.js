@@ -332,7 +332,9 @@ FL_Basic.prototype.suggest = function(element) {
 	{
 		var node = jQuery('<div class="spell_sep_top">' + this.getLang('add_unfair_word', 'Unfaires Wort hinzufügen') + '</div>');
 		node.click(function(e) {
-			window.location.href = "mailto:iwant@fairlanguage.com?subject=Mir%20fehlt%20noch%20ein%20unfaires%20Wort&body=Sorry.%20So%20weit%20sind%20wir%20mit%20der%20Entwicklung%20noch%20nicht.%20Aber%20du%20kannst%20uns%20gerne%20eine%20Mail%20schreiben.%20Deine%20unfairen%20Formulierungen%20sind%20dann%20in%20der%20Zukunft%20dabei.";
+		window.open('https://docs.google.com/forms/d/e/1FAIpQLSd1GIBT31ohUqDAe8xX9KTKGt0CbHO4Y07wHJgQFuZx-iIJ-w/viewform?usp=sf_link',
+  '_blank'
+);
 		});
 		suggest.append(node);
 	}
