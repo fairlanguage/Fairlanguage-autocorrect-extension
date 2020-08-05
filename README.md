@@ -7,7 +7,7 @@ Fairlanguage Browser Extension
 
 ### Contact
 iwant@fairlanguage.com
-Fairlanguage - Michael Martens, Wiedenkamp 5, 24107 Quarnbek
+Fairlanguage (GFGK Gesellschaft für gerechte Kommunikation mbH, Persiusstraße 17, 10245 Berlin
 
 ### License
 
